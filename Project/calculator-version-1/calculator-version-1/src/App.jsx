@@ -1,19 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import './App.css'
 import styles from './App.module.css';
+import Display from './Components/Display';
+import ButtonContainer from './Components/ButtonContainer';
 
 function App() {
 
+  let btn=['C',1,2,'+',3,4,'-',5,6,"*",7,8,'/','=',9,0,'.'];
   return (
     <div className={styles.calculator}>
-      <input type="text" className={styles.display} />
-      <div className={styles.buttonContainer}>
-        <button className={styles.buttonitSelf}>c</button>
-        <button className={styles.buttonitSelf}>1</button>
-        <button className={styles.buttonitSelf}>2</button>
-        <button className={styles.buttonitSelf}>3</button>
-        <button className={styles.buttonitSelf}>4</button>
-      </div>
+      <Display/>
+      <ButtonContainer btn={btn}/>
+      
     </div>
   )
 }
