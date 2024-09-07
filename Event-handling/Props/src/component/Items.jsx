@@ -3,8 +3,9 @@
 import styles from "./Items.module.css";
 let Items=({foody})=>
 {
-  const clickonButton=()=>
+  const clickonButton=(event)=>
   {
+    console.log(event);
     console.log(`${foody} begin bought`);
   }
   
@@ -12,7 +13,7 @@ let Items=({foody})=>
     <>
     
     <li className={`${styles["bg-food"]} list-group-item bg-food `}><span className={styles["Food-weight"]}>{foody}</span>
-    <button className={`${styles.button} btn btn-info`} onClick={clickonButton}>Buy</button></li>
+    <button className={`${styles.button} btn btn-info`} onClick={(event)=>clickonButton(event)}>Buy</button></li>
     
     </>
   );
