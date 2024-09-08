@@ -1,0 +1,14 @@
+.addTodo{
+  background-color: whitesmoke;
+  border:0px;
+  outline: none;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.addDate{
+  border:0px;
+  outline: none;
+  font-size: 22px;
+  border-radius: 5px;
+}
