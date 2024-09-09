@@ -5,80 +5,23 @@ import AddTodo from './component/AddTodo';
 import TodoItems from './component/TodoItems';
 import WelcomeMassage from './component/WelcomeMassage';
 import Container from './component/Container';
-
 import "./App.css"
-import { useReducer, useState } from 'react';
-import { TodoItemContext } from './store/Todo-item-store';
+import TodoItemContextProvider from './store/Todo-item-store';
 
-
-const todoReducer=(currTodo,action)=>
-{
-  let newTodoItems=currTodo;
-  if(action.type==="NEW_ITEM")
-  {
-      newTodoItems=[...currTodo,{
-      name:action.payload.addItem,
-      dueDate:action.payload.addDate,
-    }];
-  }
-  else if(action.type==="DELETE_BTN")
-  {
-    newTodoItems=currTodo.filter((item)=>item.name!=action.payload.todoItemName);
-
-
-  }
-    return newTodoItems;
-
-}
 
 
 function App() {
-  const [initialTodoItems,todoDispatch]=useReducer(todoReducer,[]);
-
-  const addNewItem=(addItem,addDate)=>
-  {
-
-    const newItemAction={
-      type:"NEW_ITEM",
-      payload:{
-        addItem,
-        addDate,
-      }
-    }
-    todoDispatch(newItemAction);
-  }
-
-  const DeleteButton=(todoItemName)=>
-  {
-
-    const  deleteAction={
-      type:"DELETE_BTN",
-      payload:{
-        todoItemName,
-      }
-    }
-    todoDispatch(deleteAction);
-    
-  }
-
-
-  
   return (
 
-    <TodoItemContext.Provider value={{
-      initialTodoItems: initialTodoItems,
-      addNewItem: addNewItem,
-      DeleteButton:DeleteButton,
-      
-
-      }}>
+    <TodoItemContextProvider>
     <Container>
      <AppName/>
      <AddTodo />
     <WelcomeMassage ></WelcomeMassage>
      <TodoItems/>
     </Container>
-    </TodoItemContext.Provider>
+    </TodoItemContextProvider>
+
 
   )
 }
