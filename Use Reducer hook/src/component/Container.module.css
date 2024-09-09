@@ -1,0 +1,9 @@
+.containerDesign{
+  border:3px solid yellow;
+  margin: 50px;
+  width: 450px;
+  padding:20px;
+  background-color:wheat;
+  border-radius: 10px;
+  box-shadow: 5px 2px 2px red ;
+}
