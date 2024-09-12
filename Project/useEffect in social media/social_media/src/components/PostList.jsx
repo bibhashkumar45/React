@@ -27,7 +27,7 @@ const PostList = () => {
 
   return (
     <>
-     { <LodingSpinner/>}
+     {fetcheddata&& <LodingSpinner/>}
       { !fetcheddata&&PostList.length === 0 && (
         <WelcomeMassage onClickFetchButton={handleFetchButton}></WelcomeMassage>
       )}
