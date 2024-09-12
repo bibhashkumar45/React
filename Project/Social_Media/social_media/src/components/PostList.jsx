@@ -1,16 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Post from "./Post";
 import { PostContext } from "../store/Post-store-app";
 import WelcomeMassage from "./WelcomeMassage";
 
 const PostList = () => {
   const { PostList, addInitialPost } = useContext(PostContext);
+  const [fetchedData, setFetch] = useState(false);
 
-  const handleFetchButton = () => {
+  if (!fetchedData) {
     fetch("https://dummyjson.com/posts")
       .then((res) => res.json())
-      .then((data)=>{addInitialPost(data.posts)});
-  };
+      .then((data) => {
+        addInitialPost(data.posts);
+      });
+      setFetch(true);
+  }
+
+  const handleFetchButton = () => {};
 
   return (
     <>
