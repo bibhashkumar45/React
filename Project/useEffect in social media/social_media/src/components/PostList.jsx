@@ -10,14 +10,36 @@ const PostList = () => {
 
 
 
+  // useEffect(()=>{
+  //   setfetchData(true);
+  //   fetch("https://dummyjson.com/posts")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       addInitialPost(data.posts);
+  //       setfetchData(false);
+  //     });
+  // },[]);
+
+
+  // Advanced useEffect---------------------
+
   useEffect(()=>{
     setfetchData(true);
-    fetch("https://dummyjson.com/posts")
+
+    const controller=new AbortController();
+    const signal=controller.signal; 
+
+    fetch("https://dummyjson.com/posts",{signal})
       .then((res) => res.json())
       .then((data) => {
         addInitialPost(data.posts);
         setfetchData(false);
       });
+
+      return ()=>{
+        console.log("Cleaning up UseEffect.");
+        controller.abort();
+      };
   },[]);
     
     
