@@ -1,0 +1,34 @@
+.app-container{
+  display: flex;
+}
+.Content{
+  width:100%;
+}
+.sidebar{
+  min-height: 740px;
+    
+}
+
+.post-card{
+  margin:30px;
+}
+
+.tag-post{
+  margin: 5px;
+}
+
+.like-Btn{
+  margin: 10px 0px;
+}
+
+
+.create-post{
+  width:60%;
+  margin-left: 20%;
+  margin-top: 60px;
+}
+
+.spinner{
+  margin:70px 0px;
+ 
+}
