@@ -4,8 +4,11 @@ import { useState } from "react";
 function Timer()
 {
  const [time,setTime]= useState(new Date());
+//  console.log("Hellooooooooooooooooooooooo");
+ 
 
 // setInterval(() => {
+//   console.log("Hellooooooooooooooooooooooo");
 //   setTime(new Date());
   
 //  }, 1000);
