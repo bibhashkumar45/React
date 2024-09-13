@@ -124,7 +124,6 @@ const PostcontextProvider=({children})=>
       });
 
       return ()=>{
-        console.log("Cleaning up UseEffect.");
         controller.abort();
       };
   },[]);
